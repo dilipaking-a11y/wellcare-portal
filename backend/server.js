@@ -83,5 +83,5 @@ app.get('/api/my-plan/:userId', (req, res) => {
     const userPlan = plans.filter(p => p.userId === req.params.userId).reverse();
     res.json(userPlan[0] || {});
 });
-
-app.listen(5000, () => console.log("Server running on port 5000"));
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
