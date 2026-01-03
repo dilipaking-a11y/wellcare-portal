@@ -11,7 +11,7 @@ function UserDashboard() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post('http://localhost:5000/api/health-stats', { ...formData, userId: user.id, name: user.name });
+    await axios.post('https://wellcare-backend.onrender.com/api/health-stats', { ...formData, userId: user.id, name: user.name });
     alert("Vitals Updated Successfully!");
   };
 

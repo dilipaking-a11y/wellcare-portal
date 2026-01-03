@@ -9,7 +9,7 @@ function Register() {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    await axios.post('http://localhost:5000/api/register', form);
+    await axios.post('https://wellcare-backend.onrender.com/api/register', form);
     alert("Registration successful! Welcome to the portal.");
     navigate('/');
   };

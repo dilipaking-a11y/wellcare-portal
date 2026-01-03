@@ -10,7 +10,7 @@ function SpecialistPanel() {
   const [isThinking, setIsThinking] = useState(false);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/specialist/users').then(res => setUsers(res.data));
+    axios.get('https://wellcare-backend.onrender.com/api/specialist/users').then(res => setUsers(res.data));
   }, []);
 
   const generateAIAdvice = async () => {
@@ -18,14 +18,14 @@ function SpecialistPanel() {
     setIsThinking(true);
     // Simulate AI analysis delay
     setTimeout(async () => {
-      const res = await axios.post('http://localhost:5000/api/generate-ai-advice', selectedUser);
+      const res = await axios.post('https://wellcare-backend.onrender.com/api/generate-ai-advice', selectedUser);
       setAdvice(res.data.advice);
       setIsThinking(false);
     }, 1500);
   };
 
   const submitPlan = async () => {
-    await axios.post('http://localhost:5000/api/submit-plan', { userId: selectedUser.userId, advice });
+    await axios.post('https://wellcare-backend.onrender.com/api/submit-plan', { userId: selectedUser.userId, advice });
     alert("Care plan finalized and sent.");
     setSelectedUser(null);
     setAdvice("");

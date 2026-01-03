@@ -10,7 +10,7 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/login', form);
+      const res = await axios.post('https://wellcare-backend.onrender.com/api/login', form);
       localStorage.setItem('user', JSON.stringify(res.data));
       if (res.data.role === 'specialist') navigate('/specialist');
       else navigate('/dashboard');
